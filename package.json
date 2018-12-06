@@ -1,6 +1,6 @@
 {
   "name": "up-ical-generator",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "ical-generator is a small piece of code which generates ical calendar files",
   "author": "Guillaume CHOMAT <guillaume.chomat@up.coop>",
   "license": "MIT",
