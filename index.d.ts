@@ -1,7 +1,7 @@
 /// <reference types="node" />
 
-declare module 'ical-generator' {
-  
+declare module 'up-ical-generator' {
+
   import * as moment from 'moment';
   
   /**
