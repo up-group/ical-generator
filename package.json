@@ -1,11 +1,12 @@
 {
   "name": "up-ical-generator",
+  "version": "1.4.2",
   "description": "ical-generator is a small piece of code which generates ical calendar files",
-  "author": "Sebastian Pekarek <mail@sebbo.net>",
+  "author": "Guillaume CHOMAT <guillaume.chomat@up.coop>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/up-group/ical-generator/issues",
-    "email": "bugs@sebbo.net"
+    "email": "guillaume.chomat@up.coop"
   },
   "engines": {
     "node": ">=6.0.0"
