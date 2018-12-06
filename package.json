@@ -1,10 +1,10 @@
 {
-  "name": "ical-generator",
+  "name": "up-ical-generator",
   "description": "ical-generator is a small piece of code which generates ical calendar files",
   "author": "Sebastian Pekarek <mail@sebbo.net>",
   "license": "MIT",
   "bugs": {
-    "url": "http://github.com/sebbo2002/ical-generator/issues",
+    "url": "https://github.com/up-group/ical-generator/issues",
     "email": "bugs@sebbo.net"
   },
   "engines": {
@@ -56,7 +56,7 @@
   "main": "./dist/index.js",
   "repository": {
     "type": "git",
-    "url": "http://github.com/sebbo2002/ical-generator.git"
+    "url": "https://github.com/up-group/ical-generator.git"
   },
   "typings": "index.d.ts",
   "runkitExampleFilename": "examples/example-string.js"

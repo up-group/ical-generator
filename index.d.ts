@@ -1,8 +1,9 @@
 /// <reference types="node" />
 
-import * as moment from 'moment';
-
 declare module 'ical-generator' {
+  
+  import * as moment from 'moment';
+  
   /**
    * Tool for generating iCal calendar data
    * Exports a function that can be used to generate a calendar object
@@ -219,7 +220,7 @@ declare module 'ical-generator' {
       type(): attendeeType;
       type(type: attendeeType): ICalAttendee;
       delegatedTo(): string | ICalAttendee;
-      delegatedTo(attendee: string | ICalAttendee);
+      delegatedTo(attendee: string | ICalAttendee): string | ICalAttendee;
       delegatedFrom(): string | ICalAttendee;
       delegatedFrom(attendee: string | ICalAttendee): ICalAttendee;
       delegatesTo(attendee: ICalAttendee | string | AttendeeData): ICalAttendee;
