@@ -13,7 +13,7 @@ const ICalEvent = require('./event');
 class ICalCalendar {
     constructor(data) {
         this._data = {};
-        this._attributes = ['domain', 'prodId', 'method', 'name', 'description', 'timezone', 'ttl', 'url', 'events'];
+        this._attributes = ['domain', 'prodId', 'method', 'id', 'name', 'description', 'timezone', 'ttl', 'url', 'events'];
         this._vars = {
             allowedMethods: ['PUBLISH', 'REQUEST', 'REPLY', 'ADD', 'CANCEL', 'REFRESH', 'COUNTER', 'DECLINECOUNTER']
         };
@@ -31,6 +31,21 @@ class ICalCalendar {
         }
     }
 
+    /**
+     * Set/Get your feed's id
+     *
+     * @param {string} [id] id
+     * @since 0.3.1
+     * @returns {ICalCalendar|String}
+     */
+    id(id) {
+        if (!id) {
+            return this._data.id;
+        }
+
+        this._data.id = id.toString();
+        return this;
+    }
 
     /**
      * Set/Get your feed's domain…
@@ -212,13 +227,11 @@ class ICalCalendar {
             return this._data.ttl;
         }
 
-        if(moment.isDuration(ttl)) {
+        if (moment.isDuration(ttl)) {
             this._data.ttl = ttl;
-        }
-        else if(parseInt(ttl, 10) > 0) {
+        } else if (parseInt(ttl, 10) > 0) {
             this._data.ttl = moment.duration(parseInt(ttl, 10), 'seconds');
-        }
-        else {
+        } else {
             this._data.ttl = null;
         }
 
@@ -312,7 +325,9 @@ class ICalCalendar {
      * @returns {String}
      */
     toURL() {
-        const blob = new Blob([this._generate()], {type: 'text/calendar'});
+        const blob = new Blob([this._generate()], {
+            type: 'text/calendar'
+        });
         return URL.createObjectURL(blob);
     }
 
@@ -377,6 +392,11 @@ class ICalCalendar {
 
         // VCALENDAR and VERSION
         g = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\n';
+
+        // Id
+        if (this._data.id) {
+            g += 'X-WR-RELCALID:' + this._data.id + '\r\n';
+        }
 
         // PRODID
         g += 'PRODID:-' + this._data.prodid + '\r\n';

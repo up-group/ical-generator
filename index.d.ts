@@ -3,7 +3,7 @@
 declare module 'up-ical-generator' {
 
   import * as moment from 'moment';
-  
+
   /**
    * Tool for generating iCal calendar data
    * Exports a function that can be used to generate a calendar object
@@ -16,9 +16,9 @@ declare module 'up-ical-generator' {
     type status = 'CONFIRMED' | 'TENTATIVE' | 'CANCELLED';
     type day = 'SU' | 'MO' | 'TU' | 'WE' | 'TH' | 'FR' | 'SA';
     type attendeeRole = 'CHAIR' | 'REQ-PARTICIPANT' | 'OPT_PARTICIPANT' | 'NON-PARTICIPANT';
-    type attendeeStatus = 'ACCEPTED' | 'TENTATIVE'| 'DECLINED'| 'DELEGATED' | 'NEEDS-ACTION';
-    type attendeeRsvp = 'true' | 'false'| true| false;
-    type attendeeType = 'INDIVIDUAL'| 'GROUP'| 'RESOURCE'| 'ROOM'| 'UNKNOWN';
+    type attendeeStatus = 'ACCEPTED' | 'TENTATIVE' | 'DECLINED' | 'DELEGATED' | 'NEEDS-ACTION';
+    type attendeeRsvp = 'true' | 'false' | true | false;
+    type attendeeType = 'INDIVIDUAL' | 'GROUP' | 'RESOURCE' | 'ROOM' | 'UNKNOWN';
     type alarmType = 'display' | 'audio';
 
 
@@ -40,6 +40,7 @@ declare module 'up-ical-generator' {
       domain?: string;
       prodId?: string | ProdId;
       method?: method;
+      id?: string;
       name?: string;
       description?: string;
       timezone?: string;
@@ -166,7 +167,7 @@ declare module 'up-ical-generator' {
       sequence(): number;
       sequence(sequence: number): ICalEvent;
       start(): moment.Moment;
-      start(start: string | moment.Moment |  Date): ICalEvent;
+      start(start: string | moment.Moment | Date): ICalEvent;
       end(): moment.Moment;
       end(end: string | moment.Moment | Date): ICalEvent;
       timezone(): string;
